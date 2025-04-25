@@ -11,10 +11,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("Attack Settings")]
-    [SerializeField] private float attackCooldown = 0.5f;
-    private float nextAttackTime = 0f;
-
 
     private Rigidbody2D rb;
     // private Animator anim;
@@ -47,12 +43,6 @@ public class CharacterController : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextAttackTime)
-        {
-            Attack();
-            nextAttackTime = Time.time + attackCooldown;
-        }
-
         // anim.SetFloat("Speed", Mathf.Abs(horizontalMove));
         // anim.SetBool("IsGrounded", isGrounded);
 
@@ -75,14 +65,6 @@ public class CharacterController : MonoBehaviour
         // anim.SetTrigger("Jump"); // Zıplama animasyonunu tetikle
         // isGrounded = false; // Physics2D OverlapCircle bunu zaten bir sonraki FixedUpdate'te yapar ama istersen hemen de ayarlayabilirsin
     }
-
-    void Attack()
-    {
-        // anim.SetTrigger("Attack"); // Saldırı animasyonunu tetikle
-        Debug.Log("Attack Triggered!");
-        // Buraya saldırı mekaniği eklenebilir (örn: mermi atma, alan hasarı kontrolü)
-    }
-
     void Flip()
     {
         if ((horizontalMove > 0 && !isFacingRight) || (horizontalMove < 0 && isFacingRight))

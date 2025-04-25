@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Debug.Log(gameObject.name + " TakeDamage çağrıldı. Hasar: " + damage + " | Önceki Can: " + currentHealth); // DEBUG
         currentHealth -= damage;
 
         if (currentHealth <= 0)
@@ -22,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        Debug.Log(gameObject.name + " Die() metodu çağrıldı."); // DEBUG
         Destroy(gameObject);
     }
 }
