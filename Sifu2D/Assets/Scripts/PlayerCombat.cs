@@ -9,6 +9,10 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayers; // Düşmanların bulunduğu katman
 
     public Transform attackPoint; // Saldırı noktası
+    public GameObject bulletPrefab;
+    public Transform bulletPoint;
+    public float bulletCooldown = 0.5f;
+    private float nextBulletTime = 0f;
 
     private bool isAttacking = false; // Saldırıyor mu?
     private Animator anim; // Animator referansı
@@ -20,10 +24,17 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
-        // Sol tık kontrolü
+        // Saldırı
         if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
             StartCoroutine(Attack());
+        }
+
+        // E tuşu ile mermi atma
+        if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextBulletTime)
+        {
+            Shoot();
+            nextBulletTime = Time.time + bulletCooldown;
         }
     }
 
@@ -52,6 +63,16 @@ public class PlayerCombat : MonoBehaviour
         isAttacking = false;
         if (anim != null)
             anim.SetBool("isAttacking", false); // Saldırı bittiğinde kapat
+    }
+
+    void Shoot()
+    {
+        if (bulletPrefab != null && bulletPoint != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, bulletPoint.position, Quaternion.identity);
+            Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            bullet.GetComponent<Bullet>().SetDirection(direction);
+        }
     }
 
     // Saldırı menzilini sahnede göster
