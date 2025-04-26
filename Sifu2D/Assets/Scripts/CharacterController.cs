@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
 
 
     private Rigidbody2D rb;
-    // private Animator anim;
+    private Animator anim; // Animator referansı eklendi
 
     private float horizontalMove = 0f;
     private bool isGrounded = false;
@@ -24,7 +24,7 @@ public class CharacterController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>(); // Animator başlatıldı
     }
 
     void Update()
@@ -43,8 +43,11 @@ public class CharacterController : MonoBehaviour
             Jump();
         }
 
-        // anim.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        // anim.SetBool("IsGrounded", isGrounded);
+        if (anim != null)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            anim.SetBool("isGrounded", isGrounded);
+        }
 
         Flip();
     }
@@ -60,10 +63,9 @@ public class CharacterController : MonoBehaviour
 
     void Jump()
     {
-        // Yerçekimini yenmek için yukarı doğru ani bir kuvvet uygula (velocity'yi ayarla)
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        // anim.SetTrigger("Jump"); // Zıplama animasyonunu tetikle
-        // isGrounded = false; // Physics2D OverlapCircle bunu zaten bir sonraki FixedUpdate'te yapar ama istersen hemen de ayarlayabilirsin
+        if (anim != null)
+            anim.SetTrigger("Jump"); // Zıplama animasyonunu tetikle
     }
     void Flip()
     {
@@ -81,7 +83,8 @@ public class CharacterController : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
-        // anim.SetTrigger("Dead");
+        if (anim != null)
+            anim.SetTrigger("Dead"); // Ölüm animasyonunu tetikle
         Debug.Log("Player Died!");
 
         rb.linearVelocity = Vector2.zero;

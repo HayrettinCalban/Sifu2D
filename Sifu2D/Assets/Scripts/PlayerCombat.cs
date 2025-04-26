@@ -10,12 +10,18 @@ public class PlayerCombat : MonoBehaviour
 
     public Transform attackPoint; // Saldırı noktası
 
-    private bool canAttack = true; // Saldırı yapabilir mi?
+    private bool isAttacking = false; // Saldırıyor mu?
+    private Animator anim; // Animator referansı
+
+    void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
         // Sol tık kontrolü
-        if (Input.GetMouseButtonDown(0) && canAttack)
+        if (Input.GetMouseButtonDown(0) && !isAttacking)
         {
             StartCoroutine(Attack());
         }
@@ -23,7 +29,14 @@ public class PlayerCombat : MonoBehaviour
 
     IEnumerator Attack()
     {
-        canAttack = false; // Saldırı sırasında başka saldırıyı engelle
+        isAttacking = true;
+
+        // Saldırı animasyonunu tetikle
+        if (anim != null)
+        {
+            anim.SetTrigger("AttackTrigger");
+            anim.SetBool("isAttacking", true); // Animator bool parametresi
+        }
 
         // Saldırı yapılan düşmanları bul
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -34,8 +47,11 @@ public class PlayerCombat : MonoBehaviour
             enemy.GetComponent<EnemyHealth>()?.TakeDamage(attackDamage);
         }
 
-        yield return new WaitForSeconds(attackCooldown); // Saldırı bekleme süresi
-        canAttack = true; // Tekrar saldırı yapılabilir
+        yield return new WaitForSeconds(attackCooldown);
+
+        isAttacking = false;
+        if (anim != null)
+            anim.SetBool("isAttacking", false); // Saldırı bittiğinde kapat
     }
 
     // Saldırı menzilini sahnede göster

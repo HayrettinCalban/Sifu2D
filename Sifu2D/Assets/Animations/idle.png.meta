@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: c56f04b55f68cc54a9366b3263c10957
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5930207791662507020
+    second: ana karakter nefes_0
+  - first:
+      213: -6715870334801610707
+    second: ana karakter nefes_1
+  - first:
+      213: 2485361859098414750
+    second: ana karakter nefes_2
+  - first:
+      213: 3340142779976182506
+    second: ana karakter nefes_3
+  - first:
+      213: -1217467455915370092
+    second: ana karakter nefes_4
+  - first:
+      213: -3667491463626047509
+    second: ana karakter nefes_5
+  - first:
+      213: 8916410603082624341
+    second: ana karakter nefes_6
+  - first:
+      213: 2659469854485009592
+    second: ana karakter nefes_7
+  - first:
+      213: 4945184624356595540
+    second: ana karakter nefes_8
+  - first:
+      213: -1664322529400401125
+    second: ana karakter nefes_9
+  - first:
+      213: 3573345359961277368
+    second: ana karakter nefes_10
+  - first:
+      213: 956623108577394215
+    second: ana karakter nefes_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ana karakter nefes_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1650
+        width: 841
+        height: 471
+      alignment: 9
+      pivot: {x: 0.2034694, y: 0.03333839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c042c4221945c4250800000000000000
+      internalID: 5930207791662507020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_1
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 1649
+        width: 783
+        height: 479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d28f090438f6cc2a0800000000000000
+      internalID: -6715870334801610707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_2
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 1648
+        width: 793
+        height: 481
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9e8ddd5177cd7220800000000000000
+      internalID: 2485361859098414750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1052
+        width: 821
+        height: 471
+      alignment: 9
+      pivot: {x: 0.2034694, y: 0.03333839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeae09b59229a5e20800000000000000
+      internalID: 3340142779976182506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_4
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1054
+        width: 786
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499d09c9ccfaa1fe0800000000000000
+      internalID: -1217467455915370092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_5
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 1100
+        width: 785
+        height: 496
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: befbacde1f37a1dc0800000000000000
+      internalID: -3667491463626047509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 517
+        width: 811
+        height: 472
+      alignment: 9
+      pivot: {x: 0.2034694, y: 0.03333839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55d244cc3347dbb70800000000000000
+      internalID: 8916410603082624341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_7
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 513
+        width: 783
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b4507ffdb558e420800000000000000
+      internalID: 2659469854485009592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_8
+      rect:
+        serializedVersion: 2
+        x: 2062
+        y: 568
+        width: 793
+        height: 482
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4579f731733d0a440800000000000000
+      internalID: 4945184624356595540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 793
+        height: 472
+      alignment: 9
+      pivot: {x: 0.2034694, y: 0.03333839}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13d86b3a7327e8e0800000000000000
+      internalID: -1664322529400401125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_10
+      rect:
+        serializedVersion: 2
+        x: 994
+        y: 0
+        width: 793
+        height: 487
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b348482ca2179130800000000000000
+      internalID: 3573345359961277368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ana karakter nefes_11
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 23
+        width: 794
+        height: 489
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e7faa16ab964d00800000000000000
+      internalID: 956623108577394215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 28a64a066f395c646be44bd2b76ec747
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ana karakter nefes_0: 5930207791662507020
+      ana karakter nefes_1: -6715870334801610707
+      ana karakter nefes_10: 3573345359961277368
+      ana karakter nefes_11: 956623108577394215
+      ana karakter nefes_2: 2485361859098414750
+      ana karakter nefes_3: 3340142779976182506
+      ana karakter nefes_4: -1217467455915370092
+      ana karakter nefes_5: -3667491463626047509
+      ana karakter nefes_6: 8916410603082624341
+      ana karakter nefes_7: 2659469854485009592
+      ana karakter nefes_8: 4945184624356595540
+      ana karakter nefes_9: -1664322529400401125
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
