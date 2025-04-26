@@ -64,24 +64,18 @@ public class SimplePatrol2D : MonoBehaviour
     {
         if (currentTarget == null) return;
 
-        // Sadece X eksenindeki yöne bak
         float directionX = currentTarget.position.x - transform.position.x;
         Vector3 scale = transform.localScale;
 
-        if (Mathf.Abs(directionX) > 0.01f) // Çok küçük hareketlerde yön değiştirmemek için eşik değer
+        if (Mathf.Abs(directionX) > 0.01f)
         {
-            if (directionX > 0) // Sağa gidiyorsa
-            {
-                // Başlangıç scale'inin pozitif X değerini kullan
-                scale.x = Mathf.Abs(initialScale.x);
-            }
-            else // Sola gidiyorsa
-            {
-                // Başlangıç scale'inin negatif X değerini kullan
-                scale.x = -Mathf.Abs(initialScale.x);
-            }
+
+            if (directionX > 0)
+                scale.x = -Mathf.Abs(initialScale.x); // Sağa bak
+            else
+                scale.x = Mathf.Abs(initialScale.x); // Sola bak
+
             transform.localScale = scale;
         }
-        // Eğer tam dikey hareket ediyorsa (directionX ~ 0), yönü değiştirme
     }
 }

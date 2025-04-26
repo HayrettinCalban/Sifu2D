@@ -37,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " Die() metodu çağrıldı."); // DEBUG
+        FindFirstObjectByType<PlayerCombat>()?.AddKill();
         Destroy(gameObject);
     }
 }

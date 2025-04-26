@@ -49,9 +49,14 @@ public class LineDamageEnemy : MonoBehaviour
             Debug.Log("Raycast hiçbir şeye çarpmadı.");
         }
 
+        Animator anim = GetComponent<Animator>();
+
         if (hit.collider != null && hit.collider.CompareTag(playerTag))
         {
             playerInFront = true;
+            if (anim != null)
+                anim.SetBool("isAttacking", true);
+
             PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
@@ -61,6 +66,8 @@ public class LineDamageEnemy : MonoBehaviour
         else
         {
             playerInFront = false;
+            if (anim != null)
+                anim.SetBool("isAttacking", false);
         }
     }
 
