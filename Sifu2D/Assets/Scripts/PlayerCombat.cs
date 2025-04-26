@@ -14,12 +14,16 @@ public class PlayerCombat : MonoBehaviour
     public float bulletCooldown = 0.5f;
     private float nextBulletTime = 0f;
 
+    public AudioClip katanaSound; // Katana sesi
+    private AudioSource audioSource; // Ses kaynağı
+
     private bool isAttacking = false; // Saldırıyor mu?
     private Animator anim; // Animator referansı
 
     void Awake()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -41,6 +45,12 @@ public class PlayerCombat : MonoBehaviour
     IEnumerator Attack()
     {
         isAttacking = true;
+
+        // Katana sesi çal (ses çalmıyorsa veya bitmişse)
+        if (katanaSound != null && audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(katanaSound);
+        }
 
         // Saldırı animasyonunu tetikle
         if (anim != null)
