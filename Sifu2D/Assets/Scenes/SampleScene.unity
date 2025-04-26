@@ -1226,7 +1226,7 @@ MonoBehaviour:
   - {fileID: 1011939617}
   - {fileID: 1533835816}
   killCount: 0
-  killTarget: 1
+  killTarget: 5
   finishPanel: {fileID: 1415418814}
 --- !u!114 &733646631
 MonoBehaviour:
@@ -1503,8 +1503,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.869355, y: 0.0017865896}
-  m_Size: {x: 1.3999022, y: 2.8009012}
+  m_Offset: {x: 0.7606872, y: -0.016324759}
+  m_Size: {x: 1.6172379, y: 2.8371239}
   m_Direction: 0
 --- !u!212 &787592085
 SpriteRenderer:
@@ -2276,7 +2276,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2516,7 +2516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1866246716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2637,8 +2637,8 @@ MonoBehaviour:
     tertemiz bir miras b\u0131rakaca\u011F\u0131m. Ve bir g\xFCn, o da benim gibi,
     bu kutsal emaneti ta\u015F\u0131yacak; gururla, cesaretle, sevgiyle..."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 249c4767f28838242b90e50ef3bbd453, type: 2}
+  m_sharedMaterial: {fileID: -3160855716413884896, guid: 249c4767f28838242b90e50ef3bbd453, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

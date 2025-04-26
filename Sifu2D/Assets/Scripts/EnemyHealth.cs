@@ -37,7 +37,15 @@ public class EnemyHealth : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " Die() metodu çağrıldı."); // DEBUG
+
+        // Ölüm animasyonunu tetikle
+        Animator anim = GetComponent<Animator>();
+        if (anim != null)
+            anim.SetTrigger("Dead"); // Animator'da "Dead" trigger'ı olmalı
+
         FindFirstObjectByType<PlayerCombat>()?.AddKill();
-        Destroy(gameObject);
+
+        // Animasyonun bitmesini beklemeden hemen yok etmek yerine, animasyon süresi kadar bekle
+        Destroy(gameObject, 1.0f); // 1 saniye sonra yok et (animasyon süresine göre ayarla)
     }
 }

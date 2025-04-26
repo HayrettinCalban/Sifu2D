@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections; // Coroutine için
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -29,7 +31,14 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0 && characterController != null)
         {
             characterController.Die();
+            StartCoroutine(ReloadSceneAfterDelay());
         }
+    }
+
+    IEnumerator ReloadSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void UpdateHealthBar()
