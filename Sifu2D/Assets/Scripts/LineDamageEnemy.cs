@@ -1,83 +1,88 @@
 using UnityEngine;
 
-public class LineDamageEnemy : MonoBehaviour
+[RequireComponent(typeof(Animator))]
+public class EnemyAttack : MonoBehaviour
 {
-    public float lineLength = 5f;
-    public float damageInterval = 1.0f;
+    [Header("Attack Settings")]
+    public float attackRange = 5f;
+    public float attackInterval = 1.0f;
+    public int attackDamage = 1;
     public string playerTag = "Player";
-    public LayerMask obstacleLayer;
 
-    private float nextDamageTime;
-    private SimplePatrol2D patrolScript;
-    private bool playerInFront = false;
+    [Header("References")]
+    public LayerMask attackLayers; // Katmanları belirlemek için
+    private Animator anim;
+    private float nextAttackTime;
 
-    void Start()
+    [Header("Debug")]
+    public bool showDebugRay = true;
+
+    private void Awake()
     {
-        patrolScript = GetComponent<SimplePatrol2D>();
+        anim = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
-        if (Time.time >= nextDamageTime)
+        if (Time.time >= nextAttackTime)
         {
-            DealDamageInLine();
-            nextDamageTime = Time.time + damageInterval;
-        }
-
-        if (patrolScript != null)
-        {
-            patrolScript.enabled = !playerInFront;
+            TryAttack();
+            nextAttackTime = Time.time + attackInterval;
         }
     }
 
-    void DealDamageInLine()
+    private void TryAttack()
     {
-        Vector2 direction = transform.localScale.x >= 0 ? transform.right : -transform.right;
+        // Yönü belirle (karakterin scale'ine göre)
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         Vector2 origin = transform.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, lineLength, obstacleLayer);
+        // Raycast ile hedefi kontrol et
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, attackRange, attackLayers);
 
-        // Ray çizgisi debug için
-        if (hit.collider != null)
+        if (showDebugRay)
         {
-            Debug.DrawLine(origin, hit.point, Color.red, 0.2f);
-            Debug.Log("Raycast çarptı: " + hit.collider.name + " | Layer: " + LayerMask.LayerToName(hit.collider.gameObject.layer));
-        }
-        else
-        {
-            Debug.DrawLine(origin, origin + direction * lineLength, Color.green, 0.2f);
-            Debug.Log("Raycast hiçbir şeye çarpmadı.");
+            Debug.DrawLine(origin, hit.collider != null ? hit.point : origin + direction * attackRange, hit.collider != null ? Color.red : Color.green, 0.2f);
         }
 
-        Animator anim = GetComponent<Animator>();
-
+        // Eğer bir hedef varsa
         if (hit.collider != null && hit.collider.CompareTag(playerTag))
         {
-            playerInFront = true;
-            if (anim != null)
-                anim.SetBool("isAttacking", true);
-
-            PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
-            if (playerHealth != null)
-            {
-                playerHealth.TakeDamage(1);
-            }
+            Attack(hit.collider);
         }
         else
         {
-            playerInFront = false;
-            if (anim != null)
-                anim.SetBool("isAttacking", false);
+            anim.SetBool("isAttacking", false);
         }
     }
 
-    void OnDrawGizmosSelected()
+    private void Attack(Collider2D target)
     {
-        // Editörde de doğru yönü göstermek için scale kontrolü yap
-        Vector2 direction = transform.localScale.x >= 0 ? transform.right : -transform.right;
+        // Animasyonu oynat
+        anim.SetBool("isAttacking", true);
+
+        // Hasar ver
+        PlayerHealth playerHealth = target.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage);
+        }
+    }
+
+    public void EndAttackAnim()
+    {
+        if (anim != null)
+            anim.SetBool("isAttacking", false);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!showDebugRay) return;
+
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         Vector2 origin = transform.position;
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(origin, origin + direction * lineLength);
+        Gizmos.DrawLine(origin, origin + direction * attackRange);
     }
 }

@@ -16,7 +16,7 @@ public class CharacterController : MonoBehaviour
     private Animator anim; // Animator referansı eklendi
 
     private float horizontalMove = 0f;
-    private bool isGrounded = false;
+    public bool isGrounded = false;
     private bool isFacingRight = true;
     private bool isDead = false;
 

@@ -30,21 +30,38 @@ public class PlayerCombat : MonoBehaviour
     public int killTarget = 1; // Kaç düşman öldürülünce oyun bitsin
     public GameObject finishPanel; // Inspector’dan atayacağın panel
 
+    public UnityEngine.UI.Image attackCooldownBar; // Inspector'dan atayacağın mavi bar
+    private float attackCooldownTimer = 0f; // Cooldown sayacı
+
+    private CharacterController characterController;
+
     void Awake()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         currentBulletCount = maxBulletCount;
         UpdateBulletUI();
+        characterController = GetComponent<CharacterController>(); // Ekle
     }
 
     void Update()
     {
         // Saldırı
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
+        if (Input.GetMouseButtonDown(0) && !isAttacking && attackCooldownTimer <= 0f && characterController != null && characterController.isGrounded)
         {
             StartCoroutine(Attack());
+            attackCooldownTimer = attackCooldown; // Cooldown başlat
         }
+
+        // Cooldown barı güncelle
+        if (attackCooldownBar != null)
+        {
+            float fill = 1f - (attackCooldownTimer / attackCooldown);
+            attackCooldownBar.fillAmount = fill;
+        }
+
+        if (attackCooldownTimer > 0f)
+            attackCooldownTimer -= Time.deltaTime;
 
         // E tuşu ile mermi atma (6 hakkı varsa)
         if (Input.GetKeyDown(KeyCode.E) && Time.time >= nextBulletTime && currentBulletCount > 0)
@@ -61,8 +78,8 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttacking = true;
 
-        // Katana sesi çal
-        if (katanaSound != null && audioSource != null)
+        // Sadece zaman normalken katana sesi çal
+        if (attackCooldownTimer <= 0f && katanaSound != null && audioSource != null && Time.timeScale == 1f)
         {
             audioSource.PlayOneShot(katanaSound);
         }
@@ -76,6 +93,7 @@ public class PlayerCombat : MonoBehaviour
 
         // Saldırı yapılan düşmanları bul
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -117,6 +135,8 @@ public class PlayerCombat : MonoBehaviour
     public void AddKill()
     {
         killCount++;
+        Debug.Log("Kill Count: " + killCount); // Sayaç değeri konsolda görünür
+
         if (killCount >= killTarget)
         {
             if (finishPanel != null)

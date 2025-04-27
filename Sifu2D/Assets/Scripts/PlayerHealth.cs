@@ -35,6 +35,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(int amount)
+    {
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        UpdateHealthBar();
+    }
+
     IEnumerator ReloadSceneAfterDelay()
     {
         yield return new WaitForSeconds(2f);
@@ -46,6 +52,17 @@ public class PlayerHealth : MonoBehaviour
         if (healthBarFill != null)
         {
             healthBarFill.fillAmount = (float)currentHealth / maxHealth;
+        }
+    }
+
+    void Update()
+    {
+        // Oyuncu çok aşağıya düşerse öl ve sahneyi yeniden başlat
+        if (transform.position.y < -10f)
+        {
+            if (characterController != null)
+                characterController.Die();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
