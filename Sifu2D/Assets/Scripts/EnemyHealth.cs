@@ -12,8 +12,13 @@ public class EnemyHealth : MonoBehaviour
     public float knockbackForce = 2f; // Inspector'dan ayarla
     public GameObject healthPickupPrefab; // Inspector'dan ata
 
+    public AudioClip deathSound; // Inspector'dan ata
+    private AudioSource audioSource;
+
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
+
+    private bool isDead = false;
 
     void Start()
     {
@@ -22,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage)
@@ -61,6 +67,10 @@ public class EnemyHealth : MonoBehaviour
     {
         Debug.Log(gameObject.name + " Die() metodu çağrıldı."); // DEBUG
 
+        // Ölüm sesi çal
+        if (audioSource != null && deathSound != null)
+            audioSource.PlayOneShot(deathSound);
+
         // Ölüm animasyonunu tetikle
         Animator anim = GetComponent<Animator>();
         if (anim != null)
@@ -93,10 +103,14 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y < -10f)
+        if (!isDead && transform.position.y < -5f)
         {
+            isDead = true;
+            if (audioSource != null && deathSound != null)
+                audioSource.PlayOneShot(deathSound);
+
             FindFirstObjectByType<PlayerCombat>()?.AddKill();
-            Destroy(gameObject);
+            Destroy(gameObject, 1.0f); // 1 saniye sonra yok et (sesin çalmasına izin verir)
         }
     }
 }

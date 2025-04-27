@@ -35,6 +35,9 @@ public class PlayerCombat : MonoBehaviour
 
     private CharacterController characterController;
 
+    private float shurikenTimer = 0f;
+    public float shurikenInterval = 10f; // 10 saniyede bir
+
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -71,6 +74,22 @@ public class PlayerCombat : MonoBehaviour
             currentBulletCount--;
             UpdateBulletUI();
             Debug.Log("Kalan mermi: " + currentBulletCount);
+        }
+
+        // Shuriken (bullet) otomatik ekleme
+        if (currentBulletCount < maxBulletCount)
+        {
+            shurikenTimer += Time.deltaTime;
+            if (shurikenTimer >= shurikenInterval)
+            {
+                currentBulletCount++;
+                UpdateBulletUI();
+                shurikenTimer = 0f;
+            }
+        }
+        else
+        {
+            shurikenTimer = 0f; // Maksimuma ulaştıysa sayaç sıfırlansın
         }
     }
 
