@@ -60,6 +60,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         dialoguePanel.SetActive(false);
+        dialogueText.text = ""; // Yazıyı temizle
         Time.timeScale = 1f; // Oyunu devam ettir
     }
 
